@@ -1,30 +1,49 @@
-# Quantum-Inductive-Bias-EGNN
+<div align="center">
 
-**An investigation into the regularization properties of Variational Quantum Circuits (VQCs) within SE(3)-Equivariant Graph Neural Networks.**
+# ⚛️ Quantum-Inductive-Bias-EGNN
+
+**Investigating the Regularization Properties of Variational Quantum Circuits (VQCs) within SE(3)-Equivariant Graph Neural Networks.**
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)
+![PyTorch](https://img.shields.io/badge/PyTorch-Geometric-orange?logo=pytorch)
+![PennyLane](https://img.shields.io/badge/Quantum-PennyLane-magenta?logo=atom)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+</div>
+
+---
 
 ## 📜 Abstract
-This project implements a **Hybrid Quantum-Classical Graph Neural Network** for protein structure modeling. By integrating an SE(3)-Equivariant GNN backbone with a Variational Quantum Circuit (VQC) projection head, we analyze how quantum-induced inductive biases—specifically entanglement and interference—alter the learning trajectory compared to classical MLPs.
-## The Problem
-Accurate exploration of the Potential Energy Surface (PES) for protein-ligand interactions is currently limited by the computational cost of Ab Initio methods (like DFT). While Machine Learning Potentials (MLPs) offer a speedup, classical architectures often struggle to model complex many-body electron correlation effects efficiently, leading to poor generalization outside the training distribution.
-## My Approach
-I address this by implementing a Hybrid Quantum-Classical E(n)-Equivariant GNN. By targeting the Delta-Learning ($\Delta$-ML) task—predicting the residual error between semi-empirical approximations and high-fidelity DFT—and processing geometric features through a Variational Quantum Circuit (VQC), I aim to leverage the natural entanglement capabilities of quantum Hilbert spaces to capture electron correlations that classical message-passing layers fail to resolve.
+This project implements a **Hybrid Quantum-Classical Graph Neural Network** for protein structure modeling. By integrating an **SE(3)-Equivariant GNN** backbone with a **Variational Quantum Circuit (VQC)** projection head, we analyze how quantum-induced inductive biases—specifically entanglement and interference—alter the learning trajectory compared to classical MLPs.
+
+---
+
+## 📉 The Challenge: "Delta Learning"
+Accurate exploration of the **Potential Energy Surface (PES)** is limited by the trade-off between speed and accuracy.
+
+| **Method** | **Speed** | **Accuracy** | **Limitation** |
+| :--- | :--- | :--- | :--- |
+| **Ab Initio (DFT)** | 🐢 Very Slow | 🎯 High | Computationally prohibitive for large proteins. |
+| **Classical MLPs** | 🐇 Fast | 📉 Low | Fails to capture **long-range electron correlations**. |
+
+### 💡 My Approach
+I address this by implementing a **Hybrid Quantum-Classical E(n)-Equivariant GNN** targeting the **Delta-Learning ($\Delta$-ML)** task.
+
+> **Goal:** Predict the *residual error* between cheap semi-empirical approximations and high-fidelity DFT.
+
+By processing geometric features through a **Variational Quantum Circuit (VQC)**, I aim to leverage the natural **entanglement capabilities** of quantum Hilbert spaces to capture electron correlations that classical message-passing layers fail to resolve.
+
+---
+
 ## 🧠 Key Research Question
-Does replacing the final classical dense layers with a parameterized quantum circuit introduce a distinct **inductive bias** that acts as an implicit regularizer?
+> *Does replacing the final classical dense layers with a parameterized quantum circuit introduce a distinct **inductive bias** that acts as an implicit regularizer?*
 
 * **Hypothesis:** The limited Hilbert space connectivity and unitary nature of VQCs prevent the "fast memorization" often seen in over-parameterized classical networks.
-* **Observation:** While classical heads exhibit rapid convergence (often overfitting), the Quantumsem Head demonstrates smoother loss landscapes and distinct generalization bounds.
-## 🔬 Verification: Equivariance Test
-A critical requirement for physically grounded molecular models is **SE(3)-Equivariance**. The model's energy prediction must remain identical regardless of how the protein is rotated in 3D space.
+* **Observation:** While classical heads exhibit rapid convergence (often overfitting), the **Quantum Head** demonstrates smoother loss landscapes and distinct generalization bounds.
 
-We validated this property by comparing the model's output for a random protein graph against a randomly rotated version ($R \in SO(3)$).
+---
 
-<p align="center">
-  <img src="assets/equivariance_test.png" alt="Equivariance Verification Output" width="650">
-  <br>
-  <em>Figure: Validation script output confirming zero deviation (Difference: 0.00e+00) between original and rotated inputs, proving that the Quantum VQC layer preserves the geometric symmetries of the EGNN backbone.</em>
-</p>
-
-## 📉 The Research Roadmap
+## 🗺️ The Research Roadmap
 This project is the culmination of a systematic study into Geometric Deep Learning and Quantum Computing.
 
 ```mermaid
@@ -49,6 +68,8 @@ graph TD
     B -->|Limitation: Loses Spatial Coordinates| C
     C -->|Hypothesis: Classical Logic misses Electron Correlations| D
 
+    style D fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    style P4 fill:#fff,stroke:#01579b,stroke-dasharray: 5 5
 ---
 
 ## 🧠 One-Line Summary
