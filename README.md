@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚛️ Quantum-Inductive-Bias-EGNN
+# ⚛️ VQC-EGNN
 
 **Investigating the Regularization Properties of Variational Quantum Circuits (VQCs) within SE(3)-Equivariant Graph Neural Networks.**
 
