@@ -17,7 +17,8 @@ class HybridEquivariantGNN(nn.Module):
         ])
 
         # Compress graph embedding → small vector
-        self.pre_quantum = nn.Linear(hidden_dim, 4)
+        # Rename this variable
+        self.latent_projection = nn.Linear(hidden_dim, 4) # Projects to Quantum Latent Space
 
         # Quantum layer
         self.quantum = QuantumLayer(n_qubits=4, n_layers=2)
