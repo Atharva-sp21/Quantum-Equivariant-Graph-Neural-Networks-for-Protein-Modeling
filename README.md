@@ -49,19 +49,19 @@ This project is the culmination of a systematic study into Geometric Deep Learni
 ```mermaid
 graph TD
     subgraph P1 [Phase 1: Computer Vision]
-        A[<b>CNNs / LeNet-5</b><br/><i>Grid Data</i>]
+        A[<b>CNNs / LeNet-5</b><br/>Grid Data]
     end
 
     subgraph P2 [Phase 2: Graph Theory]
-        B[<b>Standard GNNs</b><br/><i>Irregular Structures</i>]
+        B[<b>Standard GNNs</b><br/>Irregular Structures]
     end
 
     subgraph P3 [Phase 3: Geometry & Physics]
-        C[<b>E n -Equivariant GNNs</b><br/><i>3D Symmetry</i>]
+        C[<b>Equivariant GNNs</b><br/>3D Symmetry]
     end
 
     subgraph P4 [Phase 4: Quantum Frontier]
-        D[<b>Hybrid Quantum-Equivariant GNN</b><br/><i>Non-Classical Inductive Bias</i>]
+        D[<b>Hybrid Quantum-Equivariant GNN</b><br/>Non-Classical Inductive Bias]
     end
 
     A -->|Limitation: Fails on 3D Rotation| B
@@ -70,7 +70,3 @@ graph TD
 
     style D fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
     style P4 fill:#fff,stroke:#01579b,stroke-dasharray: 5 5
----
-
-## 🧠 One-Line Summary
-*A physically equivariant, hybrid quantum–classical graph model for protein structures, evaluated with rigorous baselines and ablations.*
